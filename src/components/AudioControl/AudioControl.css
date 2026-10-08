@@ -1,0 +1,87 @@
+.audio-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-btn);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: all var(--duration-fast) var(--ease-reveal);
+  cursor: pointer;
+  user-select: none;
+}
+
+.audio-control:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.3);
+  color: var(--text-primary);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.2);
+}
+
+.audio-control__bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px;
+  width: 14px;
+}
+
+.audio-control__bar {
+  flex: 1;
+  background-color: var(--text-muted);
+  border-radius: 1px;
+  height: 2px;
+  transition: all 0.25s ease;
+}
+
+.audio-control--active .audio-control__bar {
+  background-color: var(--accent-cyan);
+}
+
+.audio-control--active .audio-control__bar--1 {
+  animation: audioWave 0.8s ease-in-out infinite alternate;
+}
+
+.audio-control--active .audio-control__bar--2 {
+  animation: audioWave 1.1s ease-in-out 0.2s infinite alternate;
+}
+
+.audio-control--active .audio-control__bar--3 {
+  animation: audioWave 0.7s ease-in-out 0.4s infinite alternate;
+}
+
+.audio-control--active .audio-control__bar--4 {
+  animation: audioWave 0.95s ease-in-out 0.1s infinite alternate;
+}
+
+.audio-control--muted .audio-control__bar {
+  height: 2px !important;
+  background-color: var(--text-muted);
+  opacity: 0.4;
+}
+
+.audio-control__label {
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.audio-control--active .audio-control__label {
+  color: var(--text-primary);
+}
+
+@keyframes audioWave {
+  0% {
+    height: 3px;
+  }
+  50% {
+    height: 12px;
+  }
+  100% {
+    height: 5px;
+  }
+}

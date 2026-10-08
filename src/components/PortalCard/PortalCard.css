@@ -1,0 +1,241 @@
+/* ── Portal Cards & Stepped Pixel Transmission (Sylva / Manus Motion Primitives) ── */
+
+.card {
+  position: absolute;
+  background: var(--card, #131614);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: calc(46 * var(--u, 1px));
+  box-shadow: 0 calc(30 * var(--u, 1px)) calc(70 * var(--u, 1px)) rgba(0, 0, 0, 0.45);
+  transition: box-shadow 0.8s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.4s ease;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.card:hover {
+  box-shadow: 0 calc(38 * var(--u, 1px)) calc(84 * var(--u, 1px)) rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.card--ethos {
+  left: calc(890 * var(--u, 1px));
+  top: calc(200 * var(--u, 1px));
+  width: calc(330 * var(--u, 1px));
+  height: calc(305 * var(--u, 1px));
+  z-index: 4;
+}
+
+.card--note {
+  z-index: 4;
+  left: calc(1237 * var(--u, 1px));
+  top: calc(482 * var(--u, 1px));
+  width: calc(328 * var(--u, 1px));
+  height: calc(310 * var(--u, 1px));
+}
+
+.card .label {
+  position: absolute;
+  left: calc(38 * var(--u, 1px));
+  font-size: calc(14 * var(--u, 1px));
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--card-label, rgba(255, 255, 255, 0.55));
+  text-transform: uppercase;
+}
+
+.card h2 {
+  position: absolute;
+  left: calc(38 * var(--u, 1px));
+  font-size: calc(24 * var(--u, 1px));
+  line-height: calc(26 * var(--u, 1px));
+  font-weight: 400;
+  letter-spacing: calc(-0.4 * var(--u, 1px));
+  color: var(--card-ink, #ffffff);
+}
+
+.card--ethos .label {
+  top: calc(152 * var(--u, 1px));
+}
+
+.card--ethos h2 {
+  top: calc(177 * var(--u, 1px));
+  width: calc(240 * var(--u, 1px));
+}
+
+.card--note .label {
+  top: calc(45 * var(--u, 1px));
+}
+
+.card--note h2 {
+  top: calc(70 * var(--u, 1px));
+  width: calc(240 * var(--u, 1px));
+}
+
+.card figure {
+  position: absolute;
+  left: calc(14 * var(--u, 1px));
+  right: calc(14 * var(--u, 1px));
+  border-radius: calc(34 * var(--u, 1px));
+  overflow: hidden;
+  isolation: isolate;
+  background: #090b0a;
+}
+
+.card--ethos figure {
+  top: calc(14 * var(--u, 1px));
+  height: calc(122 * var(--u, 1px));
+}
+
+.card--note figure {
+  bottom: calc(14 * var(--u, 1px));
+  height: calc(158 * var(--u, 1px));
+}
+
+.portal-media {
+  position: absolute;
+  inset: calc(-9 * var(--u, 1px));
+  z-index: 1;
+  display: block;
+  will-change: transform, clip-path;
+  transform:
+    perspective(900px)
+    translate3d(calc(var(--px, 0) * -11px), calc(var(--py, 0) * -7px), 0)
+    rotateY(calc(var(--px, 0) * -1.4deg))
+    rotateX(calc(var(--py, 0) * 0.9deg));
+  transform-origin: 50% 50%;
+}
+
+.portal-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.08);
+  filter: saturate(0.95) contrast(1.05);
+  transition: transform 1.25s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s ease;
+}
+
+.card:hover .portal-media img {
+  transform: scale(1.13);
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.pixel-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+/* White scan line riding the advancing edge */
+.card figure::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  filter: blur(calc(2 * var(--u, 1px)));
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  width: 26%;
+  left: calc(-13% - 9 * var(--u, 1px));
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 212, 252, 0.25) 42%,
+    rgba(220, 245, 255, 0.85) 54%,
+    transparent
+  );
+}
+
+/* Knob buttons */
+.card .knob,
+.knob--about {
+  position: absolute;
+  z-index: 4;
+  right: calc(20 * var(--u, 1px));
+  bottom: calc(20 * var(--u, 1px));
+  width: calc(56 * var(--u, 1px));
+  height: calc(56 * var(--u, 1px));
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #fbfcf8;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 calc(6 * var(--u, 1px)) calc(16 * var(--u, 1px)) rgba(0, 0, 0, 0.25);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.4s ease;
+}
+
+.card--note .knob {
+  width: calc(54 * var(--u, 1px));
+  height: calc(54 * var(--u, 1px));
+  right: calc(24 * var(--u, 1px));
+  bottom: calc(24 * var(--u, 1px));
+}
+
+.knob svg {
+  width: calc(20 * var(--u, 1px));
+  height: calc(20 * var(--u, 1px));
+  display: block;
+  color: #1a1e1b;
+}
+
+.knob:hover {
+  transform: scale(1.12) rotate(12deg);
+  background: #ffffff;
+}
+
+/* Mobile Layout */
+@media (max-width: 900px) {
+  .card--ethos {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+    margin-bottom: 24px;
+    border-radius: 28px;
+  }
+  .card--ethos .label {
+    top: 24px;
+  }
+  .card--ethos h2 {
+    top: 52px;
+    width: calc(100% - 140px);
+    font-size: 20px;
+  }
+  .card--ethos figure {
+    top: auto;
+    bottom: 16px;
+    height: 120px;
+  }
+  .card--note {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    min-height: 240px;
+    border-radius: 28px;
+  }
+  .card--note .label {
+    top: 24px;
+  }
+  .card--note h2 {
+    top: 52px;
+    width: calc(100% - 140px);
+    font-size: 20px;
+  }
+  .card--note figure {
+    bottom: 16px;
+    height: 120px;
+  }
+}

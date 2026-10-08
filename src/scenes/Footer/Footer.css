@@ -1,0 +1,145 @@
+.footer {
+  position: relative;
+  min-height: 80vh;
+  padding: var(--space-section) var(--space-page);
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.footer__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4rem;
+  flex-grow: 1;
+}
+
+.footer__cta-block {
+  max-width: 800px;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.footer__kicker {
+  color: var(--accent-cyan);
+}
+
+.footer__title {
+  font-size: var(--text-title);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.footer__title-accent {
+  background: linear-gradient(135deg, #FFFFFF, var(--accent) 55%, var(--accent-cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer__desc {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+.footer__btn-wrap {
+  margin-top: 1rem;
+}
+
+.footer__magnetic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: #FFFFFF;
+  color: #040406;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: var(--radius-btn);
+  transition: all var(--duration-fast) var(--ease-reveal);
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.18);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.footer__magnetic-btn:hover {
+  background: var(--accent-cyan);
+  color: #040406;
+  box-shadow: 0 0 40px rgba(0, 240, 255, 0.5);
+  transform: scale(1.02);
+}
+
+.footer__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer__telemetry {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+}
+
+.footer__status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--accent-cyan);
+}
+
+.footer__status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 6px var(--accent-cyan);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.footer__sep {
+  opacity: 0.25;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.footer__link {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  transition: color var(--duration-fast) var(--ease-reveal);
+  text-decoration: none;
+}
+
+.footer__link:hover {
+  color: var(--text-primary);
+}
+
+.footer__copy {
+  color: var(--text-muted);
+}

@@ -1,0 +1,207 @@
+.neural-lab {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--space-section) var(--space-page);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.neural-lab__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.neural-lab__header {
+  margin-bottom: clamp(2rem, 5vh, 3.5rem);
+  max-width: 800px;
+}
+
+.neural-lab__kicker {
+  color: var(--accent-cyan);
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.neural-lab__title {
+  font-size: var(--text-title);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.neural-lab__title-accent {
+  color: var(--accent-cyan);
+}
+
+.neural-lab__desc {
+  font-size: var(--text-body);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 640px;
+}
+
+.neural-lab__console {
+  padding: 0 !important;
+}
+
+.neural-lab__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem var(--card-padding);
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.neural-lab__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.neural-lab__indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.neural-lab__mode-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.neural-lab__mode-btn {
+  padding: 5px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-control);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  transition: all var(--duration-fast) var(--ease-reveal);
+  cursor: pointer;
+}
+
+.neural-lab__mode-btn:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.neural-lab__mode-btn--active {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+}
+
+.neural-lab__toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.neural-lab__action-btn {
+  padding: 6px 14px;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  border-radius: var(--radius-control);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-reveal);
+  cursor: pointer;
+}
+
+.neural-lab__action-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.neural-lab__action-btn--surge {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.4);
+  color: #FFFFFF;
+}
+
+.neural-lab__action-btn--surge:hover {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
+}
+
+.neural-lab__canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #020204;
+}
+
+.neural-lab__canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.neural-lab__canvas-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  display: flex;
+  gap: 1.25rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.neural-lab__terminal {
+  padding: 1.25rem var(--card-padding);
+  background: rgba(4, 4, 6, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.neural-lab__terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.neural-lab__terminal-blink {
+  color: var(--accent-cyan);
+}
+
+.neural-lab__terminal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.neural-lab__log-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.neural-lab__log-caret {
+  color: var(--accent);
+}
+
+.neural-lab__log-text {
+  color: var(--text-secondary);
+}

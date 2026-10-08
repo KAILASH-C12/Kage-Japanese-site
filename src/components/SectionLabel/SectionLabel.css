@@ -1,0 +1,19 @@
+.section-label {
+  position: absolute;
+  top: 2rem;
+  font-size: var(--text-micro);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  writing-mode: horizontal-tb;
+  z-index: 2;
+}
+
+.section-label--left {
+  left: var(--space-page);
+}
+
+.section-label--right {
+  right: var(--space-page);
+}

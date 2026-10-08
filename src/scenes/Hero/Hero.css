@@ -1,0 +1,306 @@
+/* ── NEXUS Hero Stage (Sylva / Manus Motion Primitives Architecture) ── */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: calc(880 * var(--u, 1px));
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(64% 52% at 27% 84%, rgba(232, 238, 222, 0.085) 0%, rgba(232, 238, 222, 0) 72%),
+    radial-gradient(70% 60% at 92% 8%,  rgba(24, 28, 20, 0.10) 0%, rgba(24, 28, 20, 0) 68%),
+    #4a4d44;
+}
+
+/* The floor of light the 3D core stands in (sampled from Sylva reference) */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(72% 44% at 50% 117%, rgba(238, 243, 231, 0.50) 0%, rgba(238, 243, 231, 0.21) 42%, rgba(238, 243, 231, 0.04) 72%, rgba(238, 243, 231, 0) 88%),
+    linear-gradient(180deg, rgba(238, 243, 231, 0) 54%, rgba(238, 243, 231, 0.03) 78%, rgba(238, 243, 231, 0.085) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* The whole composition lives on a centered 1600 × 880 stage */
+.stage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: calc(-800 * var(--u, 1px));
+  margin-top: calc(-440 * var(--u, 1px));
+  width: calc(1600 * var(--u, 1px));
+  height: calc(880 * var(--u, 1px));
+}
+
+/* ── Hero Copy (z 4) ── */
+.headline {
+  position: absolute;
+  z-index: 4;
+  left: calc(46 * var(--u, 1px));
+  top: calc(202 * var(--u, 1px));
+  font-size: calc(64 * var(--u, 1px));
+  line-height: calc(66 * var(--u, 1px));
+  font-weight: 300;
+  letter-spacing: calc(-0.4 * var(--u, 1px));
+  color: var(--ink, #ffffff);
+  font-family: 'Lexend', 'Space Grotesk', sans-serif;
+}
+
+.headline span {
+  display: block;
+  padding-bottom: 0.04em;
+}
+
+.headline span i {
+  display: inline-block;
+  font-style: normal;
+  opacity: 0;
+  transform: translateY(calc(16 * var(--u, 1px)));
+}
+
+.is-ready .headline span i {
+  opacity: 1;
+  transform: none;
+  transition: opacity 1.05s var(--ease) var(--d, 0ms),
+              transform 1.25s var(--ease-out) var(--d, 0ms);
+}
+
+.intro-done .headline span i {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+.lede {
+  position: absolute;
+  z-index: 4;
+  left: calc(520 * var(--u, 1px));
+  top: calc(196 * var(--u, 1px));
+  width: calc(220 * var(--u, 1px));
+  font-size: calc(16 * var(--u, 1px));
+  line-height: calc(23 * var(--u, 1px));
+  font-weight: 300;
+  color: var(--ink-soft, rgba(255, 255, 255, 0.65));
+}
+
+/* ── Liquid Metal Button Clips (z 4) ── */
+.pill-clip {
+  position: absolute;
+  z-index: 4;
+  left: calc(644 * var(--u, 1px));
+  top: calc(360 * var(--u, 1px));
+  width: calc(410 * var(--u, 1px));
+  height: calc(270 * var(--u, 1px));
+  margin: calc(-135 * var(--u, 1px)) 0 0 calc(-205 * var(--u, 1px));
+  clip-path: inset(
+    calc(72 * var(--u, 1px)) calc(60 * var(--u, 1px))
+    calc(26 * var(--u, 1px)) calc(60 * var(--u, 1px))
+    round calc(62 * var(--u, 1px))
+  );
+}
+
+.pill {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+/* ── Play / Stimulate Core Button (z 4) ── */
+.play-wrap {
+  position: absolute;
+  z-index: 4;
+  pointer-events: none;
+  left: calc(187 * var(--u, 1px));
+  top: calc(431 * var(--u, 1px));
+  width: calc(170 * var(--u, 1px));
+  height: calc(170 * var(--u, 1px));
+}
+
+.play-wrap > * {
+  pointer-events: auto;
+}
+
+.play-clip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(396 * var(--u, 1px));
+  height: calc(396 * var(--u, 1px));
+  margin: calc(-198 * var(--u, 1px)) 0 0 calc(-198 * var(--u, 1px));
+  clip-path: inset(
+    calc(131 * var(--u, 1px)) calc(106 * var(--u, 1px))
+    calc(73 * var(--u, 1px)) calc(106 * var(--u, 1px))
+    round calc(92 * var(--u, 1px))
+  );
+}
+
+.play-glass {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.play-ring {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+}
+
+.play-ring::after {
+  content: '';
+  position: absolute;
+  inset: calc(-1 * var(--u, 1px));
+  border: 1px solid rgba(124, 92, 252, 0.55);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.86);
+  transition: opacity 0.7s var(--ease), transform 0.9s var(--ease-out);
+}
+
+.play-clip:hover ~ .play-ring::after,
+.play-clip:focus-within ~ .play-ring::after {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ── Stats Badges (z 4) ── */
+.stat {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  gap: calc(9 * var(--u, 1px));
+}
+
+.stat--a {
+  left: calc(1250 * var(--u, 1px));
+  top: calc(216 * var(--u, 1px));
+}
+
+.stat--b {
+  left: calc(1346 * var(--u, 1px));
+  top: calc(326 * var(--u, 1px));
+}
+
+.stat .mark {
+  width: calc(32 * var(--u, 1px));
+  height: calc(32 * var(--u, 1px));
+  flex: none;
+  margin-top: calc(2 * var(--u, 1px));
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.stat .mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 calc(2 * var(--u, 1px)) calc(10 * var(--u, 1px)) rgba(0, 0, 0, 0.6));
+}
+
+.stat dt {
+  font-size: calc(13.5 * var(--u, 1px));
+  font-weight: 300;
+  color: var(--ink-soft, rgba(255, 255, 255, 0.65));
+  line-height: calc(19 * var(--u, 1px));
+  text-shadow: 0 calc(2 * var(--u, 1px)) calc(16 * var(--u, 1px)) rgba(0, 0, 0, 0.6);
+}
+
+.stat dd {
+  font-size: calc(14.5 * var(--u, 1px));
+  font-weight: 600;
+  color: #ffffff;
+  line-height: calc(21 * var(--u, 1px));
+  text-shadow: 0 calc(2 * var(--u, 1px)) calc(16 * var(--u, 1px)) rgba(0, 0, 0, 0.6);
+}
+
+/* ── Mobile Responsive Stage (Max-Width 900px) ── */
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 100svh;
+    padding-bottom: 60px;
+  }
+
+  .stage {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 90px 20px 40px;
+  }
+
+  .guides {
+    display: none;
+  }
+
+  .ghost {
+    font-size: 110px;
+    letter-spacing: 8px;
+    bottom: auto;
+    top: 70px;
+    left: 10px;
+    opacity: 0.25;
+  }
+
+  .headline {
+    position: relative;
+    left: auto;
+    top: auto;
+    font-size: 42px;
+    line-height: 46px;
+    margin-bottom: 20px;
+  }
+
+  .lede {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    max-width: 440px;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  .pill-clip {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    height: auto;
+    margin: 0 0 30px 0;
+    clip-path: none;
+  }
+
+  .play-wrap {
+    display: none;
+  }
+
+  .stat {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    margin-bottom: 16px;
+  }
+
+  .stat--a,
+  .stat--b {
+    display: inline-flex;
+    margin-right: 24px;
+  }
+
+  .scroll-cue {
+    display: none;
+  }
+}

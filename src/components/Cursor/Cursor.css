@@ -1,0 +1,126 @@
+/* ─── NEXUS Cursor System ─── */
+
+.nexus-cursor-dot,
+.nexus-cursor-ring,
+.nexus-cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+/* ─── Dot ─── */
+.nexus-cursor-dot {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  background-color: var(--text-primary);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform var(--duration-fast) var(--ease-reveal),
+              background-color var(--duration-fast) var(--ease-reveal),
+              opacity var(--duration-fast) ease;
+  mix-blend-mode: difference;
+}
+
+.nexus-cursor-dot.visible {
+  opacity: 1;
+}
+
+.nexus-cursor-dot.interactive {
+  background-color: var(--accent-cyan);
+  transform: scale(0.75);
+}
+
+.nexus-cursor-dot.button {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.nexus-cursor-dot.text {
+  transform: scaleY(3) scaleX(0.4);
+  background-color: var(--accent-cyan);
+}
+
+.nexus-cursor-dot.object3d {
+  background-color: var(--accent-cyan);
+  transform: scale(0.8);
+}
+
+.nexus-cursor-dot.hidden {
+  opacity: 0;
+}
+
+/* ─── Ring ─── */
+.nexus-cursor-ring {
+  width: 36px;
+  height: 36px;
+  margin-left: -18px;
+  margin-top: -18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  opacity: 0;
+  transition: transform var(--duration-fast) var(--ease-reveal),
+              border-color var(--duration-fast) var(--ease-reveal),
+              background-color var(--duration-fast) var(--ease-reveal),
+              opacity var(--duration-fast) ease;
+}
+
+.nexus-cursor-ring.visible {
+  opacity: 1;
+}
+
+.nexus-cursor-ring.interactive {
+  transform: scale(1.4);
+  border-color: var(--accent-cyan);
+}
+
+.nexus-cursor-ring.button {
+  transform: scale(1.8);
+  border-color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.05);
+}
+
+.nexus-cursor-ring.text {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.nexus-cursor-ring.object3d {
+  transform: scale(1.6);
+  border-color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.04);
+}
+
+.nexus-cursor-ring.hidden {
+  opacity: 0;
+}
+
+/* ─── Label ─── */
+.nexus-cursor-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  opacity: 0;
+  transition: opacity var(--duration-fast) ease;
+  white-space: nowrap;
+}
+
+.nexus-cursor-label.visible {
+  opacity: 1;
+}
+
+/* ─── Disable on touch ─── */
+@media (pointer: coarse) {
+  .nexus-cursor-dot,
+  .nexus-cursor-ring,
+  .nexus-cursor-label {
+    display: none !important;
+  }
+}

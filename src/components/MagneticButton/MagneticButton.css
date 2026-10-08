@@ -1,0 +1,44 @@
+.magnetic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-btn);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: border-color var(--duration-fast) var(--ease-reveal),
+              background-color var(--duration-fast) var(--ease-reveal),
+              box-shadow var(--duration-fast) var(--ease-reveal);
+  will-change: transform;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.magnetic-button:hover {
+  border-color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.12);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.magnetic-button:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 4px;
+}
+
+.magnetic-button.primary {
+  border-color: rgba(0, 240, 255, 0.4);
+  background-color: rgba(0, 240, 255, 0.1);
+}
+
+.magnetic-button.primary:hover {
+  background-color: rgba(0, 240, 255, 0.2);
+}
